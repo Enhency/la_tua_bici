@@ -210,12 +210,9 @@
                   :next_label => t(:next, :default => "Next") %>
 
         </div>
-        <!--div class="btn-group pull-right">
-          <%= link_to '<i class="fa fa-download"></i> CSV'.html_safe,  work_shops_path(:format => :csv), :class => "btn btn-default" %>
-          <%= link_to '<i class="fa fa-download"></i> XML'.html_safe,  work_shops_path(:format => :xml), :class => "btn btn-default" %>
-          <%= link_to '<i class="fa fa-download"></i> JSON'.html_safe, work_shops_path(:format => :json), :class => "btn btn-default" %>
-          <%= link_to '<i class="fa fa-download"></i> PDF'.html_safe,  work_shops_path(:format => :pdf), :class => "btn btn-default" %>
-        </div-->
+        <div class="btn-group pull-right">
+          <%= link_to '<i class="fa fa-plus"></i> '.html_safe + 'Add Workshop', new_work_shop_path, :class => "btn btn-default" %>
+        </div>
       </div>
     <% end %>
   </div>

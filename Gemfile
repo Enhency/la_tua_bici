@@ -39,9 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'therubyracer'
-gem 'jquery-ui-rails'
 gem 'beautiful_scaffold', '~>0.3'
-
 
 gem "less-rails", github: "CQQL/less-rails", branch: "less-2.5"
 gem "will_paginate"
@@ -56,3 +54,4 @@ gem "rdiscount"
 gem "sanitize"
 gem "twitter-bootstrap-rails", github: "seyhunak/twitter-bootstrap-rails", branch: "bootstrap3"
 gem "chardinjs-rails"
+gem "devise"

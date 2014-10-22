@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  match "users/search_and_filter" => "users#index", :via => [:get, :post], :as => :search_users
+  resources :users do
+    collection do
+      post :batch
+      get  :treeview
+    end
+    member do
+      post :treeview_update
+    end
+  end
+
   match "work_shops/search_and_filter" => "work_shops#index", :via => [:get, :post], :as => :search_work_shops
   resources :work_shops do
     collection do
