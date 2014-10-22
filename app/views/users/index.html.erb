@@ -16,7 +16,7 @@
   <div class="col-md-9">
     <%= form_tag  batch_users_path, :class => "form-inline" do %>
 
-      <%= render :partial => "layouts/modal_columns", :locals => { :model_name => "user", :model_columns => ['name','created_at','updated_at'] } %>
+      <%= render :partial => "layouts/modal_columns", :locals => { :model_name => "user", :model_columns => ['email','name','created_at','updated_at'] } %>
 
       <table class="table table-striped table-bordered table-condensed">
         <thead>
@@ -31,7 +31,10 @@
               <%= sorting_header("user", "name", "") %>
             </th>
 
-            <!-- Beautiful_scaffold - AddField - Header - Do not remove -->
+                        <th <%= visible_column("user", "email") %> class="bs-col-email">
+              <%= sorting_header("user", "email", "") %>
+            </th>
+<!-- Beautiful_scaffold - AddField - Header - Do not remove -->
             <th <%= visible_column("user", "created_at") %> class="bs-col-created_at">
               <%= sorting_header("user", "created_at", "") %>
             </th>
@@ -53,6 +56,9 @@
             <td><%= check_box_tag "ids[]",user.id, false, :class => 'cbbatch' %></td>
             <td <%= visible_column("user", "name") %> class="bs-col-name <%= align_attribute("string") %>">
                 <%= user.name %>
+            </td>
+            <td <%= visible_column("user", "email") %> class="bs-col-email <%= align_attribute("string") %>">
+                <%= user.email %>
             </td>
 <!-- Beautiful_scaffold - AddField - Column - Do not remove -->
             <td <%= visible_column("user", "created_at") %> class="bs-col-created_at <%= align_attribute("datetime") %>">
@@ -96,7 +102,8 @@
       <%= ransack_field("user", "name", f, "Name") %>
 
 
-      <!-- Beautiful_scaffold - AddField - Search - Do not remove -->
+            <%= ransack_field("user", "email", f, "Email") %>
+<!-- Beautiful_scaffold - AddField - Search - Do not remove -->
 
       <div class="panel-group">
         <div class="panel panel-default">

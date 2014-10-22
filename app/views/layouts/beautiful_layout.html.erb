@@ -32,7 +32,7 @@
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li>
-              <!-- Beautiful_scaffold - Signin - Do not remove -->
+              <%= link_to("<span class='glyphicon glyphicon-log-out'></span>".html_safe, destroy_user_session_path, :method => :delete) %>
             </li>
           </ul>
         </div>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
   match "users/search_and_filter" => "users#index", :via => [:get, :post], :as => :search_users
   resources :users do
     collection do
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root :to => 'beautiful#dashboard'
+  root :to => 'work_shops#index'
   match ':model_sym/select_fields' => 'beautiful#select_fields', :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.

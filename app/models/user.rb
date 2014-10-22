@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   scope :sorting, lambda{ |options|
     attribute = options[:attribute]
     direction = options[:sorting]
@@ -23,6 +27,6 @@ class User < ActiveRecord::Base
   end
 
   def self.permitted_attributes
-    return :name
+    return :email,:name
   end
 end

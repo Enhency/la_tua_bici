@@ -13,6 +13,10 @@
       <%= f.label :name, t('app.models.user.bs_attributes.name', :default => 'name').capitalize, :class => "control-label" %>
       <%= f.text_field :name, :class => "form-control" %>
     </div>
+    <div class="form-group">
+      <%= f.label :email, t('app.models.user.bs_attributes.email', :default => 'email').capitalize, :class => "control-label" %>
+      <%= f.text_field :email, :class => "form-control" %>
+    </div>
 <!-- Beautiful_scaffold - AddField - Do not remove -->
   <div>
     <%= f.submit :class => "btn btn-primary" %>

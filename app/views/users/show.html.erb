@@ -5,6 +5,10 @@
       <%= @user.name %>
   </p>
 
+  <p>
+    <b><%= t('app.models.user.bs_attributes.email', :default => 'email') %>:</b>
+      <%= @user.email %>
+  </p>
 <!-- Beautiful_scaffold - AddField - Field - Do not remove -->
 
 <%= link_to t(:edit, :default => "Edit"), edit_user_path(@user), :class => "btn btn-default" %>
