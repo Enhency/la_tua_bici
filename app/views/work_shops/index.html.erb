@@ -1,14 +1,3 @@
-<h2><%= t(:listing, :default => "Listing") %> <%= t('app.models.work_shop.bs_caption_plural', :default => 'work_shop') %></h2>
-
-<p>
-  <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.work_shop.bs_caption', :default => 'work_shop'), new_work_shop_path, :class => "btn btn-default" %>
-  <% if WorkShop.columns.map(&:name).include?("work_shop_id") then %>
-    <%= link_to '<i class="fa fa-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.work_shop.bs_caption', :default => 'work_shop'), treeview_work_shops_path, :class => "btn btn-default" %>
-  <% end %>
-</p>
-
-<%= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'work_shop', :model_columns => ['name','photo','description','address','phone','email','website','latitude','longitude','mon_wt','mon_lt','tue_wt','tue_lt','wed_wt','wed_lt','thu_wt','thu_lt','fri_wt','fri_lt','sat_wt','sat_lt','sun_wt','sun_lt'] } %>
-
 <%# Set your scopes below (string in array) %>
 <% scopes = [] %>
 <% if not scopes.blank? then %>
@@ -25,16 +14,6 @@
 <div class="row">
   <div class="col-md-9">
     <%= form_tag  batch_work_shops_path, :class => "form-inline" do %>
-      <div class="well well-small">
-        <label class="control-label" for="select01"><%= t(:batch, :default => "Batch") %></label>
-
-        <select id="select01" name="actionprocess" class="form-control">
-          <option value="destroy"><%= t(:destroy, :default => "Destroy") %></option>
-
-          <!-- Beautiful_scaffold - AddField - Batch - Do not remove -->
-        </select>
-        <button class="btn btn-default" type="submit"><i class="fa fa-ok"></i> <%= t(:process, :default => "Process") %></button>
-      </div>
 
       <%= render :partial => "layouts/modal_columns", :locals => { :model_name => "work_shop", :model_columns => ['name','photo','description','address','phone','email','website','latitude','longitude','mon_wt','mon_lt','tue_wt','tue_lt','wed_wt','wed_lt','thu_wt','thu_lt','fri_wt','fri_lt','sat_wt','sat_lt','sun_wt','sun_lt','created_at','updated_at'] } %>
 
@@ -231,12 +210,12 @@
                   :next_label => t(:next, :default => "Next") %>
 
         </div>
-        <div class="btn-group pull-right">
+        <!--div class="btn-group pull-right">
           <%= link_to '<i class="fa fa-download"></i> CSV'.html_safe,  work_shops_path(:format => :csv), :class => "btn btn-default" %>
           <%= link_to '<i class="fa fa-download"></i> XML'.html_safe,  work_shops_path(:format => :xml), :class => "btn btn-default" %>
           <%= link_to '<i class="fa fa-download"></i> JSON'.html_safe, work_shops_path(:format => :json), :class => "btn btn-default" %>
           <%= link_to '<i class="fa fa-download"></i> PDF'.html_safe,  work_shops_path(:format => :pdf), :class => "btn btn-default" %>
-        </div>
+        </div-->
       </div>
     <% end %>
   </div>
@@ -252,6 +231,7 @@
       <%= ransack_field("work_shop", "phone", f, "Phone") %>
       <%= ransack_field("work_shop", "email", f, "Email") %>
       <%= ransack_field("work_shop", "website", f, "Website") %>
+      <!--
       <%= ransack_field("work_shop", "latitude", f, "Latitude") %>
       <%= ransack_field("work_shop", "longitude", f, "Longitude") %>
       <%= ransack_field("work_shop", "mon_wt", f, "Mon_wt") %>
@@ -268,7 +248,7 @@
       <%= ransack_field("work_shop", "sat_lt", f, "Sat_lt") %>
       <%= ransack_field("work_shop", "sun_wt", f, "Sun_wt") %>
       <%= ransack_field("work_shop", "sun_lt", f, "Sun_lt") %>
-
+      -->
 
       <!-- Beautiful_scaffold - AddField - Search - Do not remove -->
 
