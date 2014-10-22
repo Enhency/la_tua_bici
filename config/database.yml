@@ -1,0 +1,33 @@
+# postgres
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: la_tua_bici_development
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: 
+  host: localhost
+  port: 5432
+
+test: &test
+  adapter: postgresql
+  encoding: utf8
+  database: la_tua_bici_test
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: 
+  host: localhost
+  port: 5432
+  
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: la_tua_bici_production
+  pool: 5
+  timeout: 5000
+  username: postgres
+  password: 
+  host: localhost
+  port: 5432

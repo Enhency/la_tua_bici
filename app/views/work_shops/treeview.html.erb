@@ -1,0 +1,21 @@
+<h2><%= t(:treeview, :default => 'Treeview') %> <%= t('app.models.work_shop.bs_caption', :default => 'work_shop') %></h2>
+
+<%
+namespace_for_url = ""
+plural_model_name = "work_shops"
+model_name        = "work_shop"
+opened_node       = WorkShop.select(:id).all.map{ |g| "'treeelt_" + g.id.to_s + "'" }.join(',').html_safe
+%>
+
+<div id="treeview" data-model="<%= model_name %>" data-url="/<%= namespace_for_url %><%= plural_model_name %>/" data-opened="[<%= opened_node %>]">
+  <ul>
+    <% WorkShop.transaction do %>
+    <% ar = WorkShop.where(:work_shop_id => nil) %>
+    <% ar = ar.order("position") if WorkShop.column_names.include?("position") %>
+      <% for g in ar.all %>
+        <%= build_treeview(g, 'work_shops') %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+

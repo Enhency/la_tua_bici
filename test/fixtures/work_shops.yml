@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  photo: MyString
+  description: MyText
+  address: MyString
+  phone: MyString
+  email: MyString
+  website: MyString
+  latitude: 1.5
+  longitude: 1.5
+  mon_wt: MyString
+  mon_lt: MyString
+  tue_wt: MyString
+  tue_lt: MyString
+  wed_wt: MyString
+  wed_lt: MyString
+  thu_wt: MyString
+  thu_lt: MyString
+  fri_wt: MyString
+  fri_lt: MyString
+  sat_wt: MyString
+  sat_lt: MyString
+  sun_wt: MyString
+  sun_lt: MyString
+  description_typetext: MyString
+  description_fulltext: MyText
+
+two:
+  name: MyString
+  photo: MyString
+  description: MyText
+  address: MyString
+  phone: MyString
+  email: MyString
+  website: MyString
+  latitude: 1.5
+  longitude: 1.5
+  mon_wt: MyString
+  mon_lt: MyString
+  tue_wt: MyString
+  tue_lt: MyString
+  wed_wt: MyString
+  wed_lt: MyString
+  thu_wt: MyString
+  thu_lt: MyString
+  fri_wt: MyString
+  fri_lt: MyString
+  sat_wt: MyString
+  sat_lt: MyString
+  sun_wt: MyString
+  sun_lt: MyString
+  description_typetext: MyString
+  description_fulltext: MyText

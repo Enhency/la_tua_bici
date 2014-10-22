@@ -1,0 +1,111 @@
+
+<%= form_for(@work_shop) do |f| %>
+  <% if @work_shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@work_shop.errors.count, "error") %> prohibited this work_shop from being saved:</h2>
+
+      <ul>
+        <% @work_shop.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+      </ul>
+    </div>
+  <% end %>
+      <div class="form-group">
+      <%= f.label :name, t('app.models.work_shop.bs_attributes.name', :default => 'name').capitalize, :class => "control-label" %>
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :photo, t('app.models.work_shop.bs_attributes.photo', :default => 'photo').capitalize, :class => "control-label" %>
+      <%= f.text_field :photo, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, t('app.models.work_shop.bs_attributes.description', :default => 'description').capitalize, :class => "control-label" %>
+      <%= f.text_area :description, :class => "wysiwyg-editor form-control" %>
+    </div>
+    <%= f.hidden_field :description_typetext, :value => "html"  %>
+    <div class="form-group">
+      <%= f.label :address, t('app.models.work_shop.bs_attributes.address', :default => 'address').capitalize, :class => "control-label" %>
+      <%= f.text_field :address, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone, t('app.models.work_shop.bs_attributes.phone', :default => 'phone').capitalize, :class => "control-label" %>
+      <%= f.text_field :phone, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, t('app.models.work_shop.bs_attributes.email', :default => 'email').capitalize, :class => "control-label" %>
+      <%= f.text_field :email, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :website, t('app.models.work_shop.bs_attributes.website', :default => 'website').capitalize, :class => "control-label" %>
+      <%= f.text_field :website, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :latitude, t('app.models.work_shop.bs_attributes.latitude', :default => 'latitude').capitalize, :class => "control-label" %>
+      <%= f.text_field :latitude, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :longitude, t('app.models.work_shop.bs_attributes.longitude', :default => 'longitude').capitalize, :class => "control-label" %>
+      <%= f.text_field :longitude, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :mon_wt, t('app.models.work_shop.bs_attributes.mon_wt', :default => 'mon_wt').capitalize, :class => "control-label" %>
+      <%= f.text_field :mon_wt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :mon_lt, t('app.models.work_shop.bs_attributes.mon_lt', :default => 'mon_lt').capitalize, :class => "control-label" %>
+      <%= f.text_field :mon_lt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :tue_wt, t('app.models.work_shop.bs_attributes.tue_wt', :default => 'tue_wt').capitalize, :class => "control-label" %>
+      <%= f.text_field :tue_wt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :tue_lt, t('app.models.work_shop.bs_attributes.tue_lt', :default => 'tue_lt').capitalize, :class => "control-label" %>
+      <%= f.text_field :tue_lt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :wed_wt, t('app.models.work_shop.bs_attributes.wed_wt', :default => 'wed_wt').capitalize, :class => "control-label" %>
+      <%= f.text_field :wed_wt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :wed_lt, t('app.models.work_shop.bs_attributes.wed_lt', :default => 'wed_lt').capitalize, :class => "control-label" %>
+      <%= f.text_field :wed_lt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :thu_wt, t('app.models.work_shop.bs_attributes.thu_wt', :default => 'thu_wt').capitalize, :class => "control-label" %>
+      <%= f.text_field :thu_wt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :thu_lt, t('app.models.work_shop.bs_attributes.thu_lt', :default => 'thu_lt').capitalize, :class => "control-label" %>
+      <%= f.text_field :thu_lt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :fri_wt, t('app.models.work_shop.bs_attributes.fri_wt', :default => 'fri_wt').capitalize, :class => "control-label" %>
+      <%= f.text_field :fri_wt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :fri_lt, t('app.models.work_shop.bs_attributes.fri_lt', :default => 'fri_lt').capitalize, :class => "control-label" %>
+      <%= f.text_field :fri_lt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :sat_wt, t('app.models.work_shop.bs_attributes.sat_wt', :default => 'sat_wt').capitalize, :class => "control-label" %>
+      <%= f.text_field :sat_wt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :sat_lt, t('app.models.work_shop.bs_attributes.sat_lt', :default => 'sat_lt').capitalize, :class => "control-label" %>
+      <%= f.text_field :sat_lt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :sun_wt, t('app.models.work_shop.bs_attributes.sun_wt', :default => 'sun_wt').capitalize, :class => "control-label" %>
+      <%= f.text_field :sun_wt, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :sun_lt, t('app.models.work_shop.bs_attributes.sun_lt', :default => 'sun_lt').capitalize, :class => "control-label" %>
+      <%= f.text_field :sun_lt, :class => "form-control" %>
+    </div>
+<!-- Beautiful_scaffold - AddField - Do not remove -->
+  <div>
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+<% end %>
+
+

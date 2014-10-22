@@ -1,0 +1,298 @@
+<h2><%= t(:listing, :default => "Listing") %> <%= t('app.models.work_shop.bs_caption_plural', :default => 'work_shop') %></h2>
+
+<p>
+  <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t(:new, :default => "New") + ' ' + t('app.models.work_shop.bs_caption', :default => 'work_shop'), new_work_shop_path, :class => "btn btn-default" %>
+  <% if WorkShop.columns.map(&:name).include?("work_shop_id") then %>
+    <%= link_to '<i class="fa fa-folder-close"></i> '.html_safe + t(:treeview, :default => "Treeview") + ' ' + t('app.models.work_shop.bs_caption', :default => 'work_shop'), treeview_work_shops_path, :class => "btn btn-default" %>
+  <% end %>
+</p>
+
+<%= render :partial => "layouts/mass_inserting", :locals => { :namespace => '', :model_name => 'work_shop', :model_columns => ['name','photo','description','address','phone','email','website','latitude','longitude','mon_wt','mon_lt','tue_wt','tue_lt','wed_wt','wed_lt','thu_wt','thu_lt','fri_wt','fri_lt','sat_wt','sat_lt','sun_wt','sun_lt'] } %>
+
+<%# Set your scopes below (string in array) %>
+<% scopes = [] %>
+<% if not scopes.blank? then %>
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <%= link_to "All (#{@work_shop_scope_for_scope.count})", work_shops_path(:scope => ""), :class => "btn btn-default #{((session[:scope][:work_shop].to_s == '') ? 'active' : '')}" %>
+    <% for scope in scopes %>
+    <%= link_to "#{scope} (#{@work_shop_scope_for_scope.send(scope).count})", work_shops_path(:scope => scope), :class => "btn btn-default #{((session[:scope][:work_shop].to_s == scope) ? 'active' : '')}" %>
+    <% end %>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-9">
+    <%= form_tag  batch_work_shops_path, :class => "form-inline" do %>
+      <div class="well well-small">
+        <label class="control-label" for="select01"><%= t(:batch, :default => "Batch") %></label>
+
+        <select id="select01" name="actionprocess" class="form-control">
+          <option value="destroy"><%= t(:destroy, :default => "Destroy") %></option>
+
+          <!-- Beautiful_scaffold - AddField - Batch - Do not remove -->
+        </select>
+        <button class="btn btn-default" type="submit"><i class="fa fa-ok"></i> <%= t(:process, :default => "Process") %></button>
+      </div>
+
+      <%= render :partial => "layouts/modal_columns", :locals => { :model_name => "work_shop", :model_columns => ['name','photo','description','address','phone','email','website','latitude','longitude','mon_wt','mon_lt','tue_wt','tue_lt','wed_wt','wed_lt','thu_wt','thu_lt','fri_wt','fri_lt','sat_wt','sat_lt','sun_wt','sun_lt','created_at','updated_at'] } %>
+
+      <table class="table table-striped table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th class="ac">
+              <a class="" data-toggle="modal" href="#modal-columns" title="<%= t(:select_columns, :default => "Select Columns") %>" ><i class="fa fa-th-list"></i></a>
+            </th>
+            <th>
+              <%= check_box_tag :checkall, '' %>
+            </th>
+            <th <%= visible_column("work_shop", "name") %> class="bs-col-name">
+              <%= sorting_header("work_shop", "name", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "photo") %> class="bs-col-photo">
+              <%= sorting_header("work_shop", "photo", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "description") %> class="bs-col-description">
+              <%= sorting_header("work_shop", "description", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "address") %> class="bs-col-address">
+              <%= sorting_header("work_shop", "address", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "phone") %> class="bs-col-phone">
+              <%= sorting_header("work_shop", "phone", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "email") %> class="bs-col-email">
+              <%= sorting_header("work_shop", "email", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "website") %> class="bs-col-website">
+              <%= sorting_header("work_shop", "website", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "latitude") %> class="bs-col-latitude">
+              <%= sorting_header("work_shop", "latitude", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "longitude") %> class="bs-col-longitude">
+              <%= sorting_header("work_shop", "longitude", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "mon_wt") %> class="bs-col-mon_wt">
+              <%= sorting_header("work_shop", "mon_wt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "mon_lt") %> class="bs-col-mon_lt">
+              <%= sorting_header("work_shop", "mon_lt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "tue_wt") %> class="bs-col-tue_wt">
+              <%= sorting_header("work_shop", "tue_wt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "tue_lt") %> class="bs-col-tue_lt">
+              <%= sorting_header("work_shop", "tue_lt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "wed_wt") %> class="bs-col-wed_wt">
+              <%= sorting_header("work_shop", "wed_wt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "wed_lt") %> class="bs-col-wed_lt">
+              <%= sorting_header("work_shop", "wed_lt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "thu_wt") %> class="bs-col-thu_wt">
+              <%= sorting_header("work_shop", "thu_wt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "thu_lt") %> class="bs-col-thu_lt">
+              <%= sorting_header("work_shop", "thu_lt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "fri_wt") %> class="bs-col-fri_wt">
+              <%= sorting_header("work_shop", "fri_wt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "fri_lt") %> class="bs-col-fri_lt">
+              <%= sorting_header("work_shop", "fri_lt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "sat_wt") %> class="bs-col-sat_wt">
+              <%= sorting_header("work_shop", "sat_wt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "sat_lt") %> class="bs-col-sat_lt">
+              <%= sorting_header("work_shop", "sat_lt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "sun_wt") %> class="bs-col-sun_wt">
+              <%= sorting_header("work_shop", "sun_wt", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "sun_lt") %> class="bs-col-sun_lt">
+              <%= sorting_header("work_shop", "sun_lt", "") %>
+            </th>
+
+            <!-- Beautiful_scaffold - AddField - Header - Do not remove -->
+            <th <%= visible_column("work_shop", "created_at") %> class="bs-col-created_at">
+              <%= sorting_header("work_shop", "created_at", "") %>
+            </th>
+            <th <%= visible_column("work_shop", "updated_at") %> class="bs-col-updated_at">
+              <%= sorting_header("work_shop", "updated_at", "") %>
+            </th>
+            <th colspan="3">
+              <label class="checkbox">
+                <%= check_box_tag :checkallelt, 'all' %>
+                <%= pluralize(@work_shop_scope.count, t('app.models.work_shop.bs_caption', :default => 'work_shop'), t('app.models.work_shop.bs_caption_plural', :default => 'work_shop')) %>
+              </label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @work_shops.each do |work_shop| %>
+          <tr class="line-<%= cycle("1","2") %>">
+            <td class="ar"><%= work_shop.id %></td>
+            <td><%= check_box_tag "ids[]",work_shop.id, false, :class => 'cbbatch' %></td>
+            <td <%= visible_column("work_shop", "name") %> class="bs-col-name <%= align_attribute("string") %>">
+                <%= work_shop.name %>
+            </td>
+            <td <%= visible_column("work_shop", "photo") %> class="bs-col-photo <%= align_attribute("string") %>">
+                <%= work_shop.photo %>
+            </td>
+            <td <%= visible_column("work_shop", "description") %> class="bs-col-description <%= align_attribute("wysiwyg") %>">
+                <%= work_shop.description %>
+            </td>
+            <td <%= visible_column("work_shop", "address") %> class="bs-col-address <%= align_attribute("string") %>">
+                <%= work_shop.address %>
+            </td>
+            <td <%= visible_column("work_shop", "phone") %> class="bs-col-phone <%= align_attribute("string") %>">
+                <%= work_shop.phone %>
+            </td>
+            <td <%= visible_column("work_shop", "email") %> class="bs-col-email <%= align_attribute("string") %>">
+                <%= work_shop.email %>
+            </td>
+            <td <%= visible_column("work_shop", "website") %> class="bs-col-website <%= align_attribute("string") %>">
+                <%= work_shop.website %>
+            </td>
+            <td <%= visible_column("work_shop", "latitude") %> class="bs-col-latitude <%= align_attribute("float") %>">
+                <%= work_shop.latitude %>
+            </td>
+            <td <%= visible_column("work_shop", "longitude") %> class="bs-col-longitude <%= align_attribute("float") %>">
+                <%= work_shop.longitude %>
+            </td>
+            <td <%= visible_column("work_shop", "mon_wt") %> class="bs-col-mon_wt <%= align_attribute("string") %>">
+                <%= work_shop.mon_wt %>
+            </td>
+            <td <%= visible_column("work_shop", "mon_lt") %> class="bs-col-mon_lt <%= align_attribute("string") %>">
+                <%= work_shop.mon_lt %>
+            </td>
+            <td <%= visible_column("work_shop", "tue_wt") %> class="bs-col-tue_wt <%= align_attribute("string") %>">
+                <%= work_shop.tue_wt %>
+            </td>
+            <td <%= visible_column("work_shop", "tue_lt") %> class="bs-col-tue_lt <%= align_attribute("string") %>">
+                <%= work_shop.tue_lt %>
+            </td>
+            <td <%= visible_column("work_shop", "wed_wt") %> class="bs-col-wed_wt <%= align_attribute("string") %>">
+                <%= work_shop.wed_wt %>
+            </td>
+            <td <%= visible_column("work_shop", "wed_lt") %> class="bs-col-wed_lt <%= align_attribute("string") %>">
+                <%= work_shop.wed_lt %>
+            </td>
+            <td <%= visible_column("work_shop", "thu_wt") %> class="bs-col-thu_wt <%= align_attribute("string") %>">
+                <%= work_shop.thu_wt %>
+            </td>
+            <td <%= visible_column("work_shop", "thu_lt") %> class="bs-col-thu_lt <%= align_attribute("string") %>">
+                <%= work_shop.thu_lt %>
+            </td>
+            <td <%= visible_column("work_shop", "fri_wt") %> class="bs-col-fri_wt <%= align_attribute("string") %>">
+                <%= work_shop.fri_wt %>
+            </td>
+            <td <%= visible_column("work_shop", "fri_lt") %> class="bs-col-fri_lt <%= align_attribute("string") %>">
+                <%= work_shop.fri_lt %>
+            </td>
+            <td <%= visible_column("work_shop", "sat_wt") %> class="bs-col-sat_wt <%= align_attribute("string") %>">
+                <%= work_shop.sat_wt %>
+            </td>
+            <td <%= visible_column("work_shop", "sat_lt") %> class="bs-col-sat_lt <%= align_attribute("string") %>">
+                <%= work_shop.sat_lt %>
+            </td>
+            <td <%= visible_column("work_shop", "sun_wt") %> class="bs-col-sun_wt <%= align_attribute("string") %>">
+                <%= work_shop.sun_wt %>
+            </td>
+            <td <%= visible_column("work_shop", "sun_lt") %> class="bs-col-sun_lt <%= align_attribute("string") %>">
+                <%= work_shop.sun_lt %>
+            </td>
+<!-- Beautiful_scaffold - AddField - Column - Do not remove -->
+            <td <%= visible_column("work_shop", "created_at") %> class="bs-col-created_at <%= align_attribute("datetime") %>">
+              <%= l(work_shop.created_at, :format => :long) %>
+            </td>
+            <td <%= visible_column("work_shop", "updated_at") %> class="bs-col-updated_at <%= align_attribute("datetime") %>">
+              <%= l(work_shop.updated_at, :format => :long) %>
+            </td>
+            <td class="ac am"><%= link_to '<i class="fa fa-search"></i>'.html_safe, work_shop_path(work_shop), :title => t(:show, :default => "Show") %></td>
+            <td class="ac am"><%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_work_shop_path(work_shop), :title => t(:edit, :default => "Edit") %></td>
+            <td class="ac am"><%= link_to '<i class="fa fa-times"></i>'.html_safe, work_shop_path(work_shop), :data => { :confirm => t(:are_you_sure, :default => "Are you sure?") }, :method => :delete, :title => t(:destroy, :default => "Destroy") %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <div class="btn-toolbar">
+        <div class="btn-group">
+          <% clean_params %>
+          <%= will_paginate @work_shops,
+                  :inner_window => 0,
+                  :outer_window => 0,
+                  :previous_label => t(:prev, :default => "Previous"),
+                  :next_label => t(:next, :default => "Next") %>
+
+        </div>
+        <div class="btn-group pull-right">
+          <%= link_to '<i class="fa fa-download"></i> CSV'.html_safe,  work_shops_path(:format => :csv), :class => "btn btn-default" %>
+          <%= link_to '<i class="fa fa-download"></i> XML'.html_safe,  work_shops_path(:format => :xml), :class => "btn btn-default" %>
+          <%= link_to '<i class="fa fa-download"></i> JSON'.html_safe, work_shops_path(:format => :json), :class => "btn btn-default" %>
+          <%= link_to '<i class="fa fa-download"></i> PDF'.html_safe,  work_shops_path(:format => :pdf), :class => "btn btn-default" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <%= search_form_for @q, :url => search_work_shops_path, :html => { :class => "well well-small search-and-filter" }, :method => :post do |f| %>
+
+      <h3><%= t("search_and_filter", :default => "Search & filter") %></h3>
+
+      <%= ransack_field("work_shop", "name", f, "Name") %>
+      <%= ransack_field("work_shop", "photo", f, "Photo") %>
+      <%= ransack_field("work_shop", "description", f, "Description") %>
+      <%= ransack_field("work_shop", "address", f, "Address") %>
+      <%= ransack_field("work_shop", "phone", f, "Phone") %>
+      <%= ransack_field("work_shop", "email", f, "Email") %>
+      <%= ransack_field("work_shop", "website", f, "Website") %>
+      <%= ransack_field("work_shop", "latitude", f, "Latitude") %>
+      <%= ransack_field("work_shop", "longitude", f, "Longitude") %>
+      <%= ransack_field("work_shop", "mon_wt", f, "Mon_wt") %>
+      <%= ransack_field("work_shop", "mon_lt", f, "Mon_lt") %>
+      <%= ransack_field("work_shop", "tue_wt", f, "Tue_wt") %>
+      <%= ransack_field("work_shop", "tue_lt", f, "Tue_lt") %>
+      <%= ransack_field("work_shop", "wed_wt", f, "Wed_wt") %>
+      <%= ransack_field("work_shop", "wed_lt", f, "Wed_lt") %>
+      <%= ransack_field("work_shop", "thu_wt", f, "Thu_wt") %>
+      <%= ransack_field("work_shop", "thu_lt", f, "Thu_lt") %>
+      <%= ransack_field("work_shop", "fri_wt", f, "Fri_wt") %>
+      <%= ransack_field("work_shop", "fri_lt", f, "Fri_lt") %>
+      <%= ransack_field("work_shop", "sat_wt", f, "Sat_wt") %>
+      <%= ransack_field("work_shop", "sat_lt", f, "Sat_lt") %>
+      <%= ransack_field("work_shop", "sun_wt", f, "Sun_wt") %>
+      <%= ransack_field("work_shop", "sun_lt", f, "Sun_lt") %>
+
+
+      <!-- Beautiful_scaffold - AddField - Search - Do not remove -->
+
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle" data-toggle="collapse-next">
+              <%= t(:more_options, :default => "More options...") %>
+            </a>
+          </div>
+          <div class="panel-collapse collapse">
+            <div class="panel-body">
+              <%= ransack_field("work_shop", "created_at", f, "Created At") %>
+              <%= ransack_field("work_shop", "updated_at", f, "Updated At") %>
+              <%= ransack_field("work_shop", "id", f, "Id") %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <%= f.submit t(:filter, :default => "Filter"), :class => "btn btn-primary" %>
+      <%= link_to  t(:cancel, :default => "Cancel"), work_shops_path(:nosearch => "ok"), :class => "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
