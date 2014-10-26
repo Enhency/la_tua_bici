@@ -120,7 +120,7 @@
                 <%= work_shop.name %>
             </td>
             <td <%= visible_column("work_shop", "photo") %> class="bs-col-photo <%= align_attribute("string") %>">
-                <%= work_shop.photo %>
+                <%= image_tag work_shop.photo, size: '150x150' %>
             </td>
             <td <%= visible_column("work_shop", "description") %> class="bs-col-description <%= align_attribute("wysiwyg") %>">
                 <%= work_shop.description %>

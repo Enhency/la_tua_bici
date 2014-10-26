@@ -6,7 +6,7 @@
   </p>
   <p>
     <b><%= t('app.models.work_shop.bs_attributes.photo', :default => 'photo') %>:</b>
-      <%= @work_shop.photo %>
+      <%= image_tag @work_shop.photo, size: '300x300' %>
   </p>
   <p>
     <b><%= t('app.models.work_shop.bs_attributes.description', :default => 'description') %>:</b>
