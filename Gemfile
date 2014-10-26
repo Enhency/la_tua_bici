@@ -38,6 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'grape'
+
 gem 'therubyracer'
 gem 'beautiful_scaffold', '~>0.3'
 
