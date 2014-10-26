@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  mount WorkshopsApi::API => '/api/workshops'
+
   devise_for :users
   
   match "users/search_and_filter" => "users#index", :via => [:get, :post], :as => :search_users
